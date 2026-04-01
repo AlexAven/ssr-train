@@ -10,7 +10,7 @@ const App: React.FC<AppProps> = ({ todos }) => {
   };
 
   return (
-    <div style={{ padding: '40px' }}>
+    <div className='container'>
       <h1>SSR-train</h1>
       <p>Это страница отрендерина на сервере. Данные с API получены также на сервере.</p>
       <button style={{ padding: '10px 20px', fontSize: '16px' }} onClick={handleClick}>

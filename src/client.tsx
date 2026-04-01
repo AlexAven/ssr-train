@@ -3,6 +3,8 @@ import { hydrateRoot } from 'react-dom/client';
 
 import App from './App';
 
+import './styles.css';
+
 import { Todo } from './types';
 
 const todos: Todo[] = (window as any).__SSR_PROPS__;

@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/server.tsx",
   "scripts": {
-    "build:client": "webpack --config webpack.client.js",
-    "dev:client": "webpack serve --config webpack.client.js",
+    "build:client": "webpack --config webpack.client.cjs",
+    "dev:client": "webpack serve --config webpack.client.cjs",
     "dev:server": "nodemon --watch src --ext ts,tsx --exec \"ts-node --project tsconfig.json src/server.tsx\"",
     "dev": "npm run dev:server & npm run dev:client",
     "start": "npm run build:client && ts-node --project tsconfig.json src/server.tsx"
@@ -24,6 +24,8 @@
     "@types/express": "^5.0.6",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "css-loader": "^7.1.4",
+    "mini-css-extract-plugin": "^2.10.2",
     "nodemon": "^3.1.14",
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
