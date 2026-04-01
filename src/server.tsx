@@ -10,20 +10,14 @@ import { Todo } from './types';
 const app = express();
 const PORT = 3000;
 
-// Отдаём собранный клиентский бандл как статику
 app.use('/static', express.static(path.resolve(__dirname, '../dist/client')));
 
 app.get('/', async (_req, res) => {
-  // 1. Делаем запрос к бесплатной API НА СТОРОНЕ СЕРВЕРА
-  //    Клиент этот запрос не делает — он получает готовые данные
   const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
   const todos: Todo[] = await response.json();
 
-  // 2. Рендерим React-компонент в HTML-строку (это и есть SSR)
   const appHtml = renderToString(<App todos={todos} />);
 
-  // 3. Передаём данные клиенту через window.__DATA__,
-  //    чтобы React на клиенте мог "гидрировать" компонент с теми же данными
   const html = `
     <!DOCTYPE html>
     <html lang="ru">
