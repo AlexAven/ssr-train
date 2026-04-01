@@ -1,0 +1,35 @@
+{
+  "name": "ssr-train",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.tsx",
+  "scripts": {
+    "build:client": "webpack --config webpack.client.js",
+    "dev:client": "webpack serve --config webpack.client.js",
+    "dev:server": "nodemon --watch src --ext ts,tsx --exec \"ts-node --project tsconfig.json src/server.tsx\"",
+    "dev": "npm run dev:server & npm run dev:client",
+    "start": "npm run build:client && ts-node --project tsconfig.json src/server.tsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "styled-components": "^6.3.12"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "nodemon": "^3.1.14",
+    "ts-loader": "^9.5.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2",
+    "webpack": "^5.105.4",
+    "webpack-cli": "^7.0.2",
+    "webpack-dev-server": "^5.2.3"
+  }
+}
