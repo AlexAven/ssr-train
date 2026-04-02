@@ -13,13 +13,13 @@ const App: React.FC<AppProps> = ({ todos }) => {
     <div className='container'>
       <h1>SSR-train</h1>
       <p>Это страница отрендерина на сервере. Данные с API получены также на сервере.</p>
-      <button style={{ padding: '10px 20px', fontSize: '16px' }} onClick={handleClick}>
+      <button className="button" onClick={handleClick}>
         {visible ? 'Скрыть данные API' : 'Показать данные API'}
       </button>
       {visible && (
         <ul>
           {todos.map((todo) => (
-            <li key={todo.id} style={{ color: todo.completed ? 'green' : 'red' }}>
+            <li key={todo.id} className={todo.completed ? 'completed' : 'incompleted'}>
               {todo.title} — {todo.completed ? '✅' : '❌'}
             </li>
           ))}
