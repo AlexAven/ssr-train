@@ -5,10 +5,11 @@
   "main": "src/server.tsx",
   "scripts": {
     "build:client": "webpack --config webpack.client.cjs",
+    "build:server": "webpack --config webpack.server.cjs",
     "dev:client": "webpack serve --config webpack.client.cjs",
-    "dev:server": "nodemon --watch src --ext ts,tsx --exec \"ts-node --project tsconfig.json src/server.tsx\"",
+    "dev:server": "nodemon --watch src --ext ts,tsx,css --exec \"webpack --config webpack.server.cjs && node dist/server.js\"",
     "dev": "npm run dev:server & npm run dev:client",
-    "start": "npm run build:client && ts-node --project tsconfig.json src/server.tsx"
+    "start": "npm run build:client && npm run build:server && node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,7 @@
     "typescript": "^6.0.2",
     "webpack": "^5.105.4",
     "webpack-cli": "^7.0.2",
-    "webpack-dev-server": "^5.2.3"
+    "webpack-dev-server": "^5.2.3",
+    "webpack-node-externals": "^3.0.0"
   }
 }
