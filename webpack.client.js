@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/client.tsx',
   output: {
     filename: 'client.js',
-    path: path.resolve(__dirname, 'dist/client'),
+    path: path.resolve(__dirname, 'dist/client/static'),
     publicPath: '/static/',
   },
   resolve: {
@@ -22,13 +22,10 @@ module.exports = {
   },
   devServer: {
     port: 3001,
+    static: {
+      directory: path.resolve(__dirname, 'dist/client'),
+    },
     hot: true,
-    proxy: [
-      {
-        context: ['**', '!/static/**'],
-        target: 'http://localhost:3000',
-      },
-    ],
     devMiddleware: {
       publicPath: '/static/',
     },

@@ -19,8 +19,8 @@ const App: React.FC<AppProps> = ({ todos }) => {
         borderRadius: '20px'
       }}
     >
-      <h1>SSR-train</h1>
-      <p>Это страница отрендерина на сервере. Данные с API получены также на сервере.</p>
+      <h1>SSG-train</h1>
+      <p>Это страница отрендерина при сборке с помощью SSG. Данные с API получены также при сборке.</p>
       <button style={{ padding: '10px 20px', fontSize: '16px' }} onClick={handleClick}>
         {visible ? 'Скрыть данные API' : 'Показать данные API'}
       </button>
